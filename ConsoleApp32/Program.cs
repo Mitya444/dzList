@@ -9,33 +9,22 @@ while (true)
 
     if (action == 1)
     {
-        Console.WriteLine("Enter what you want to add");
-        string x = Console.ReadLine();
-        words.Add(x);
+        Add();
     }
-    if (action == 2)
+    else if (action == 2)
     {
-        foreach (string i in words)
-        {
-            Console.WriteLine(i);
-        }
+        Print();
     }
-    if (action == 3)
+    else if (action == 3)
     {
-        Console.WriteLine("Which action do you want to mark as successful ");
-        int user = Convert.ToInt32(Console.ReadLine());
-        int index = user - 1;
-        words[index] = "[Done] " + words[index];
+        Mark();
     }
-    if (action == 4)
+    else if (action == 4)
     {
-        Console.WriteLine("Choose which to delete");
-        int user = Convert.ToInt32(Console.ReadLine());
-        int index = user - 1;
-        words.RemoveAt(index);
+        Delete();
     }
 
-    if (action == 5)
+    else if (action == 5)
     {
         break;
     }
@@ -43,4 +32,32 @@ while (true)
     {
         Console.WriteLine("Error, please try again");
     }
+}
+
+void Add()
+{
+    Console.WriteLine("Enter what you want to add");
+    string x = Console.ReadLine();
+    words.Add(x);
+}
+void Print()
+{
+    foreach (string i in words)
+    {
+        Console.WriteLine(i);
+    }
+}
+void Mark()
+{
+    Console.WriteLine("Which action do you want to mark as successful ");
+    int user = Convert.ToInt32(Console.ReadLine());
+    int index = user - 1;
+    words[index] = "[Done] " + words[index];
+}
+void Delete()
+{
+    Console.WriteLine("Choose which to delete");
+    int user = Convert.ToInt32(Console.ReadLine());
+    int index = user - 1;
+    words.RemoveAt(index);
 }
